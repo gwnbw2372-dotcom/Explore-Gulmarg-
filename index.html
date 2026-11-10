@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Trip to Gulmarg - Khan Mudasir Package</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ice: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            400: '#38bdf8',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        snow: '#f8fafc',
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Glassmorphism */
+        body {
+            background-color: #0b1329;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 16px 40px -10px rgba(14, 165, 233, 0.3);
+        }
+
+        .glass-nav {
+            background: rgba(11, 19, 41, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #bae6fd 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fef08a 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Snow Animation Background Canvas */
+        #snow-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1329;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased relative selection:bg-sky-500 selection:text-white">
+
+    <!-- Snowfall Canvas Background -->
+    <canvas id="snow-canvas"></canvas>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- Navigation Bar -->
+        <nav class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Brand Logo -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-sky-500/30">
+                            <i class="fa-solid font-bold fa-mountain-sun"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-extrabold tracking-tight text-white block leading-none">
+                                Khan Mudasir <span class="text-sky-400">Package</span>
+                            </span>
+                            <span class="text-xs text-sky-200/70 font-medium tracking-wider uppercase">
+                                <i class="fa-solid fa-tree-pine text-emerald-400 mr-1"></i>Rakhi Gulmarg
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Nav Links -->
+                    <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                        <a href="#overview" class="hover:text-sky-400 transition-colors">Overview</a>
+                        <a href="#packages" class="hover:text-sky-400 transition-colors">Packages</a>
+                        <a href="#calculator" class="hover:text-sky-400 transition-colors">Price Calculator</a>
+                        <a href="#inclusions" class="hover:text-sky-400 transition-colors">Inclusions</a>
+                        <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+                    </div>
+
+                    <!-- Direct Call CTA -->
+                    <div class="hidden sm:flex items-center gap-3">
+                        <a href="tel:6005152579" class="px-4 py-2.5 rounded-xl text-sm font-semibold border border-slate-700 bg-slate-800/50 hover:bg-slate-700/50 text-sky-300 hover:text-white transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-xs"></i> 6005152579
+                        </a>
+                        <a href="https://wa.me/919596207839?text=Hi%20Khan%20Mudasir,%20I%20want%20to%20book%20a%20Gulmarg%20Package" target="_blank" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 transform active:scale-95">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Book Now
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none">
+                            <i class="fa-solid fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile dropdown menu -->
+            <div id="mobile-menu" class="hidden md:hidden glass-card border-x-0 border-t-0 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+                <a href="#overview" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Overview</a>
+                <a href="#packages" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Packages</a>
+                <a href="#calculator" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Price Calculator</a>
+                <a href="#inclusions" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Inclusions</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Contact Us</a>
+                <div class="pt-2 flex flex-col gap-2">
+                    <a href="https://wa.me/919596207839?text=Hi%20Khan%20Mudasir,%20I%20want%20to%20book%20a%20Gulmarg%20Package" target="_blank" class="w-full text-center py-3 rounded-xl font-bold bg-emerald-500 text-white flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Book via WhatsApp
+                    </a>
+                    <a href="tel:6005152579" class="w-full text-center py-3 rounded-xl font-semibold bg-slate-800 text-sky-300 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i> Call 6005152579
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header id="overview" class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+            <!-- Background Glow FX -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-sky-500/15 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-sky-400/30 text-sky-300 text-xs sm:text-sm font-semibold mb-6 shadow-inner">
+                            <span class="flex h-2 w-2 rounded-full bg-sky-400 animate-ping"></span>
+                            <span>Dream Trip to Gulmarg • Season 2026</span>
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                            Explore the Beauty of <br class="hidden sm:inline">
+                            <span class="text-gradient font-serif italic">Kashmir Snowlands</span>
+                        </h1>
+                        
+                        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-normal">
+                            Experience the magical snow peaks of Gulmarg with <strong class="text-white font-semibold">Khan Mudasir Package</strong> (Rakhi Gulmarg). We provide complete worry-free itineraries including stays with meals, certified ski training, equipment, and seamless airport transport.
+                        </p>
+
+                        <!-- Highlights Quick Badges -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10 text-left max-w-lg mx-auto lg:mx-0">
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/40 border border-slate-800">
+                                <i class="fa-solid fa-hotel text-sky-400 text-lg"></i>
+                                <span class="text-xs text-slate-200 font-medium">Warm Hotel Stay</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/40 border border-slate-800">
+                                <i class="fa-solid fa-utensils text-amber-400 text-lg"></i>
+                                <span class="text-xs text-slate-200 font-medium">Dinner & Breakfast</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/40 border border-slate-800">
+                                <i class="fa-solid fa-person-skiing text-emerald-400 text-lg"></i>
+                                <span class="text-xs text-slate-200 font-medium">Ski Instructor & Gear</span>
+                            </div>
+                        </div>
+
+                        <!-- Hero Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="https://wa.me/919596207839?text=Hi%20Khan%20Mudasir,%20I%20want%20to%20book%20a%20Gulmarg%20Package" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-base bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-white shadow-xl shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>Book Now via WhatsApp</span>
+                            </a>
+                            <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold text-base glass-card hover:bg-slate-800/80 text-sky-200 border border-slate-700/80 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calculator text-sky-400"></i>
+                                <span>Calculate Custom Fare</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Packages Section -->
+        <section id="packages" class="py-16 md:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-extrabold uppercase tracking-widest text-sky-400 mb-2">Tailored Trip Options</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white">Choose Your Gulmarg Travel Package</p>
+                    <p class="text-slate-400 text-sm sm:text-base mt-3">Select the package that best fits your travel group size. All prices are transparent with zero hidden costs.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                    
+                    <!-- Card 1: Solo Package -->
+                    <div class="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative border-slate-700/80">
+                        <div>
+                            <div class="inline-block px-3 py-1 rounded-full bg-slate-800 text-sky-300 text-xs font-semibold mb-4 border border-slate-700">
+                                <i class="fa-solid fa-user mr-1"></i> Solo Traveler
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">1 Person Package</h3>
+                            <p class="text-xs text-slate-400 mb-6">Ideal for individual adventure seekers & solo travelers.</p>
+
+                            <div class="mb-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                                <span class="text-xs text-slate-400 font-medium block">Total Price</span>
+                                <span class="text-3xl font-extrabold text-white">₹17,500</span>
+                            </div>
+
+                            <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-bed text-sky-400 mt-1"></i>
+                                    <span><strong>Hotel Stay:</strong> ₹6,000 <span class="text-xs text-slate-400 block">(Includes Dinner & Breakfast)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-person-skiing text-sky-400 mt-1"></i>
+                                    <span><strong>Skiing:</strong> ₹4,500 <span class="text-xs text-slate-400 block">(Instructor & Equipment included)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-car text-sky-400 mt-1"></i>
+                                    <span><strong>Airport Transfer:</strong> ₹7,000 <span class="text-xs text-slate-400 block">(Pickup & Drop to Gulmarg)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/919596207839?text=Hi%20Khan%20Mudasir,%20I%20want%20to%20book%201%20Person%20Package%20for%20Rs.17500" target="_blank" class="w-full py-3.5 rounded-xl font-bold bg-slate-800 hover:bg-sky-600 text-sky-200 hover:text-white transition-all text-center flex items-center justify-center gap-2 border border-slate-700">
+                            <span>Book Solo Package</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <!-- Card 2: 3 Person Package (POPULAR) -->
+                    <div class="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative border-sky-500/50 bg-gradient-to-b from-slate-900/90 to-slate-900/60">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-extrabold px-4 py-1.5 rounded-full shadow-lg tracking-wider uppercase">
+                            Most Popular
+                        </div>
+
+                        <div>
+                            <div class="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-semibold mb-4 border border-sky-500/30 mt-2">
+                                <i class="fa-solid fa-users mr-1"></i> Small Group (3 Persons)
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">3 Person Package</h3>
+                            <p class="text-xs text-slate-400 mb-6">Great value for friends, couples, or small families.</p>
+
+                            <div class="mb-6 p-4 rounded-2xl bg-sky-950/40 border border-sky-500/30">
+                                <div class="flex justify-between items-baseline">
+                                    <div>
+                                        <span class="text-xs text-sky-300 font-medium block">Total Group Package</span>
+                                        <span class="text-3xl font-extrabold text-gradient-gold">₹31,500</span>
+                                    </div>
+                                    <span class="text-xs text-slate-300 font-bold bg-sky-900/60 px-2.5 py-1 rounded-md border border-sky-700">₹10,500 / person</span>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-bed text-sky-400 mt-1"></i>
+                                    <span><strong>Hotel Stay:</strong> ₹6,000 / person <span class="text-xs text-slate-400 block">(Dinner & Breakfast Included)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-person-skiing text-sky-400 mt-1"></i>
+                                    <span><strong>Skiing:</strong> ₹4,500 / person <span class="text-xs text-slate-400 block">(Instructor & Gear included)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-car text-sky-400 mt-1"></i>
+                                    <span><strong>Airport Transfer:</strong> ₹7,000 total <span class="text-xs text-slate-400 block">(Shared vehicle pickup & drop)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/919596207839?text=Hi%20Khan%20Mudasir,%20I%20want%20to%20book%203%20Person%20Package%20for%20Rs.31500" target="_blank" class="w-full py-3.5 rounded-xl font-bold bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white shadow-lg shadow-sky-500/25 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Book 3 Person Package</span>
+                        </a>
+                    </div>
+
+                    <!-- Card 3: 8 Person Package -->
+                    <div class="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative border-slate-700/80">
+                        <div>
+                            <div class="inline-block px-3 py-1 rounded-full bg-slate-800 text-sky-300 text-xs font-semibold mb-4 border border-slate-700">
+                                <i class="fa-solid fa-people-group mr-1"></i> Large Group (8 Persons)
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">8 Person Package</h3>
+                            <p class="text-xs text-slate-400 mb-6">Best cost-per-head saving for big groups & corporate trips.</p>
+
+                            <div class="mb-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                                <div class="flex justify-between items-baseline">
+                                    <div>
+                                        <span class="text-xs text-slate-400 font-medium block">Total Group Package</span>
+                                        <span class="text-3xl font-extrabold text-white">₹84,000</span>
+                                    </div>
+                                    <span class="text-xs text-slate-300 font-bold bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">₹10,500 / person</span>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-bed text-sky-400 mt-1"></i>
+                                    <span><strong>Hotel Stay:</strong> ₹6,000 / person <span class="text-xs text-slate-400 block">(Dinner & Breakfast Included)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-person-skiing text-sky-400 mt-1"></i>
+                                    <span><strong>Skiing:</strong> ₹4,500 / person <span class="text-xs text-slate-400 block">(Instructor & Gear included)</span></span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-van-shuttle text-sky-400 mt-1"></i>
+                                    <span><strong>Airport Transfer:</strong> ₹14,000 total <span class="text-xs text-slate-400 block">(Dedicated Tempo / Large vehicle)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/919596207839?text=Hi%20Khan%20Mudasir,%20I%20want%20to%20book%208%20Person%20Package%20for%20Rs.84000" target="_blank" class="w-full py-3.5 rounded-xl font-bold bg-slate-800 hover:bg-sky-600 text-sky-200 hover:text-white transition-all text-center flex items-center justify-center gap-2 border border-slate-700">
+                            <span>Book Group Package</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Dynamic Price Calculator Section -->
+        <section id="calculator" class="py-16 md:py-20 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-3xl p-6 sm:p-10 border-sky-500/30 bg-slate-900/80 relative overflow-hidden">
+                    
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-wider border border-sky-500/20">
+                            <i class="fa-solid fa-calculator mr-1"></i> Interactive Fare Estimator
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3">Custom Group Price Calculator</h2>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-2">Adjust the number of travelers to calculate instant estimated costs and breakdown for your custom group size.</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Inputs & Controls -->
+                        <div class="lg:col-span-6 space-y-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                                    Number of Travelers (<span id="calc-count-display">3</span> Persons)
+                                </label>
+                                <div class="flex items-center gap-3">
+                                    <button id="calc-minus" class="w-12 h-12 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xl flex items-center justify-center border border-slate-700 transition-colors">-</button>
+                                    <input type="number" id="calc-input" value="3" min="1" max="50" class="flex-1 h-12 bg-slate-950 border border-slate-700 rounded-xl text-center text-xl font-bold text-white focus:outline-none focus:border-sky-500">
+                                    <button id="calc-plus" class="w-12 h-12 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xl flex items-center justify-center border border-slate-700 transition-colors">+</button>
+                                </div>
+                                <input type="range" id="calc-range" min="1" max="20" value="3" class="w-full mt-4 accent-sky-400 cursor-pointer">
+                            </div>
+
+                            <!-- Options Toggle -->
+                            <div class="space-y-3 pt-2">
+                                <label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-bed text-sky-400"></i>
+                                        <span class="text-sm font-medium text-slate-200">Hotel + Dinner & Breakfast</span>
+                                    </div>
+                                    <input type="checkbox" id="calc-opt-hotel" checked class="w-5 h-5 accent-sky-500 rounded">
+                                </label>
+
+                                <label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-person-skiing text-emerald-400"></i>
+                                        <span class="text-sm font-medium text-slate-200">Ski Instructor & Gear</span>
+                                    </div>
+                                    <input type="checkbox" id="calc-opt-ski" checked class="w-5 h-5 accent-sky-500 rounded">
+                                </label>
+
+                                <label class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-car text-amber-400"></i>
+                                        <span class="text-sm font-medium text-slate-200">Airport Pickup & Drop (Gulmarg)</span>
+                                    </div>
+                                    <input type="checkbox" id="calc-opt-cab" checked class="w-5 h-5 accent-sky-500 rounded">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Calculated Output -->
+                        <div class="lg:col-span-6 bg-slate-950/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-sm font-bold uppercase tracking-wider text-sky-400 border-b border-slate-800 pb-3 mb-4">Estimated Price Summary</h3>
+                                
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between text-slate-300">
+                                        <span>Hotel Stay (<span id="out-hotel-unit">₹6,000</span> × <span id="out-pax-1">3</span>)</span>
+                                        <span class="font-bold text-white" id="out-hotel-total">₹18,000</span>
+                                    </div>
+                                    <div class="flex justify-between text-slate-300">
+                                        <span>Ski Equipment & Instructor (<span id="out-ski-unit">₹4,500</span> × <span id="out-pax-2">3</span>)</span>
+                                        <span class="font-bold text-white" id="out-ski-total">₹13,500</span>
+                                    </div>
+                                    <div class="flex justify-between text-slate-300">
+                                        <span>Airport Transfer (Pickup & Drop)</span>
+                                        <span class="font-bold text-white" id="out-cab-total">₹7,000</span>
+                                    </div>
+                                    <div class="pt-3 border-t border-slate-800 flex justify-between items-baseline">
+                                        <span class="text-xs text-slate-400 font-medium">Estimated Per Person</span>
+                                        <span class="text-lg font-bold text-amber-400" id="out-per-person">₹12,833</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 pt-4 border-t border-slate-800 text-center">
+                                    <span class="text-xs uppercase tracking-wider text-slate-400 block font-semibold">Estimated Total Cost</span>
+                                    <div class="text-4xl font-extrabold text-gradient-gold my-1" id="out-grand-total">₹38,500</div>
+                                </div>
+                            </div>
+
+                            <button id="calc-book-btn" class="w-full mt-6 py-3.5 rounded-xl font-bold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Book This Custom Estimate</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included / Experience Features Section -->
+        <section id="inclusions" class="py-16 md:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-extrabold uppercase tracking-widest text-sky-400 mb-2">Complete Experience</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white">What's Included in Khan Mudasir Package?</p>
+                    <p class="text-slate-400 text-sm sm:text-base mt-3">We ensure your trip to Gulmarg is smooth, cozy, exciting, and memorable with comprehensive inclusions.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Feature 1 -->
+                    <div class="glass-card rounded-2xl p-6 border-slate-800 hover:border-sky-500/30 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Warm Hotel Stay</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Comfortable winter rooms equipped with heating, cozy bedding, and modern amenities for a relaxing night stay.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="glass-card rounded-2xl p-6 border-slate-800 hover:border-sky-500/30 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Delicious Meals</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Freshly prepared hot Dinner and Breakfast included in your stay to keep you energized for snow activities.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="glass-card rounded-2xl p-6 border-slate-800 hover:border-sky-500/30 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-person-skiing"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Ski Gear & Instructor</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Professional local ski instructor along with full skiing equipment (skis, boots, poles) included in your package.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="glass-card rounded-2xl p-6 border-slate-800 hover:border-sky-500/30 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-cable-car"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Gondola & Sightseeing</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Complete guidance for Gulmarg Gondola (Cable Car) ticket bookings, Phase 1 & Phase 2 snow exploration.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Booking CTA Banner -->
+        <section id="contact" class="py-16 md:py-20 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-3xl p-8 sm:p-12 border-sky-500/30 bg-gradient-to-r from-sky-950/60 via-slate-900/90 to-indigo-950/60 relative overflow-hidden text-center sm:text-left">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-8">
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Ready for your Dream Trip to Gulmarg?</h2>
+                            <p class="text-slate-300 text-sm sm:text-base mt-3 max-w-2xl">Connect directly with Khan Mudasir to get instant booking confirmation, customized travel dates, and special discounts for early bookings.</p>
+                            
+                            <div class="mt-6 flex flex-wrap justify-center sm:justify-start gap-6 text-sm">
+                                <div class="flex items-center gap-2 text-slate-300">
+                                    <i class="fa-solid fa-location-dot text-rose-400"></i>
+                                    <span>Rakhi Gulmarg, Kashmir</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-300">
+                                    <i class="fa-solid fa-clock text-sky-400"></i>
+                                    <span>24/7 Phone & WhatsApp Support</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-4 flex flex-col gap-3">
+                            <a href="https://wa.me/919596207839?text=Hi%20Khan%20Mudasir,%20I%20want%20to%20book%20a%20Gulmarg%20Package" target="_blank" class="w-full py-4 rounded-2xl font-bold bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white shadow-xl shadow-emerald-500/25 transition-all text-center flex items-center justify-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>WhatsApp: 9596207839</span>
+                            </a>
+
+                            <a href="tel:6005152579" class="w-full py-4 rounded-2xl font-bold bg-slate-800/90 hover:bg-slate-700 text-sky-300 hover:text-white transition-all text-center flex items-center justify-center gap-3 border border-slate-700">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                                <span>Call: 6005152579</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-auto py-8 border-t border-slate-800/80 bg-slate-950/80 relative z-10 text-xs text-slate-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-mountain text-sky-400 text-sm"></i>
+                    <span class="font-bold text-slate-300">Khan Mudasir Package</span> • Rakhi Gulmarg
+                </div>
+                <p>© 2026 Khan Mudasir Gulmarg Packages. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/919596207839" target="_blank" class="text-slate-400 hover:text-emerald-400"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    <a href="tel:6005152579" class="text-slate-400 hover:text-sky-400"><i class="fa-solid fa-phone text-base"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Snowfall Canvas Animation ---
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const numFlakes = 75;
+        const flakes = [];
+
+        for (let i = 0; i < numFlakes; i++) {
+            flakes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 2.5 + 0.8,
+                speedY: Math.random() * 1 + 0.5,
+                speedX: Math.random() * 0.5 - 0.25,
+                opacity: Math.random() * 0.6 + 0.2
+            });
+        }
+
+        function drawSnow() {
+            ctx.clearRect(0, 0, width, height);
+            for (let flake of flakes) {
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
+                ctx.fill();
+
+                flake.y += flake.speedY;
+                flake.x += flake.speedX;
+
+                if (flake.y > height) {
+                    flake.y = -5;
+                    flake.x = Math.random() * width;
+                }
+                if (flake.x > width) flake.x = 0;
+                if (flake.x < 0) flake.x = width;
+            }
+            requestAnimationFrame(drawSnow);
+        }
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Price Calculator Logic ---
+        const calcInput = document.getElementById('calc-input');
+        const calcRange = document.getElementById('calc-range');
+        const calcMinus = document.getElementById('calc-minus');
+        const calcPlus = document.getElementById('calc-plus');
+        const calcCountDisplay = document.getElementById('calc-count-display');
+
+        const optHotel = document.getElementById('calc-opt-hotel');
+        const optSki = document.getElementById('calc-opt-ski');
+        const optCab = document.getElementById('calc-opt-cab');
+
+        const outHotelTotal = document.getElementById('out-hotel-total');
+        const outSkiTotal = document.getElementById('out-ski-total');
+        const outCabTotal = document.getElementById('out-cab-total');
+        const outPax1 = document.getElementById('out-pax-1');
+        const outPax2 = document.getElementById('out-pax-2');
+        const outGrandTotal = document.getElementById('out-grand-total');
+        const outPerPerson = document.getElementById('out-per-person');
+        const calcBookBtn = document.getElementById('calc-book-btn');
+
+        function updateCalculator() {
+            let pax = parseInt(calcInput.value) || 1;
+            if (pax < 1) pax = 1;
+            if (pax > 100) pax = 100;
+
+            calcInput.value = pax;
+            calcRange.value = Math.min(pax, 20);
+            calcCountDisplay.innerText = pax;
+
+            const hotelRate = optHotel.checked ? 6000 : 0;
+            const skiRate = optSki.checked ? 4500 : 0;
+            
+            // Transport Calculation (Scales according to group size like package rates)
+            let cabCost = 0;
+            if (optCab.checked) {
+                if (pax === 1) cabCost = 7000;
+                else if (pax <= 4) cabCost = 7000;
+                else if (pax <= 8) cabCost = 14000;
+                else cabCost = Math.ceil(pax / 8) * 14000;
+            }
+
+            const hotelTotal = hotelRate * pax;
+            const skiTotal = skiRate * pax;
+            const grandTotal = hotelTotal + skiTotal + cabCost;
+            const perPerson = Math.round(grandTotal / pax);
+
+            outPax1.innerText = pax;
+            outPax2.innerText = pax;
+
+            outHotelTotal.innerText = '₹' + hotelTotal.toLocaleString('en-IN');
+            outSkiTotal.innerText = '₹' + skiTotal.toLocaleString('en-IN');
+            outCabTotal.innerText = '₹' + cabCost.toLocaleString('en-IN');
+            
+            outGrandTotal.innerText = '₹' + grandTotal.toLocaleString('en-IN');
+            outPerPerson.innerText = '₹' + perPerson.toLocaleString('en-IN');
+        }
+
+        calcMinus.addEventListener('click', () => {
+            let val = parseInt(calcInput.value) || 1;
+            if (val > 1) {
+                calcInput.value = val - 1;
+                updateCalculator();
+            }
+        });
+
+        calcPlus.addEventListener('click', () => {
+            let val = parseInt(calcInput.value) || 1;
+            calcInput.value = val + 1;
+            updateCalculator();
+        });
+
+        calcInput.addEventListener('input', updateCalculator);
+        calcRange.addEventListener('input', (e) => {
+            calcInput.value = e.target.value;
+            updateCalculator();
+        });
+
+        [optHotel, optSki, optCab].forEach(opt => {
+            opt.addEventListener('change', updateCalculator);
+        });
+
+        calcBookBtn.addEventListener('click', () => {
+            const pax = calcInput.value;
+            const total = outGrandTotal.innerText;
+            const message = encodeURIComponent(`Hi Khan Mudasir, I checked the calculator for ${pax} Person(s). Total estimated price is ${total}. I would like to book this trip!`);
+            window.open(`https://wa.me/919596207839?text=${message}`, '_blank');
+        });
+
+        // Initialize on Load
+        window.onload = function () {
+            drawSnow();
+            updateCalculator();
+        };
+    </script>
+</body>
+</html>
