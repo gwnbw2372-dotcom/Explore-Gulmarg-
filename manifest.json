@@ -1,0 +1,9 @@
+{
+  "name": "Explore Gulmarg",
+  "short_name": "Gulmarg",
+  "description": "Explore Gulmarg - Discover beautiful places, hotels, tourism and adventures.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb"
+}
